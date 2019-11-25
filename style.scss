@@ -1,0 +1,40 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+.container {
+    display: grid;
+    width:500px;
+    grid-gap: 10px;
+    border: 1px solid black;
+    padding: 0.2em;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(5,1fr);
+    grid-template-areas:    "display display display display display"
+                            "seven eight nine add clear"                    
+                            "four five six multiply equals"
+                            "one two three divide equals"
+                            "zero zero decimal subtract equals";
+}
+
+$list: 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'add', 'zero', 'equals', 'multiply', 'divide', 'display', 'decimal', 'subtract', 'clear';
+@each $var in $list {
+    ##{$var} {
+        grid-area: #{$var};
+    }
+}
+
+.key {
+    border: 1px solid green;
+    text-align: center;
+}
+.display {
+    text-align: right;
+    padding: 0.4em;
+}
+ 

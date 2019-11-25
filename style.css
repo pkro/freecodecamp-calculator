@@ -1,0 +1,147 @@
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+.container {
+  display: -ms-grid;
+  display: grid;
+  width: 500px;
+  grid-gap: 10px;
+  border: 1px solid black;
+  padding: 0.2em;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  -ms-grid-rows: (1fr)[5];
+      grid-template-rows: repeat(5, 1fr);
+      grid-template-areas: "display display display display display" "seven eight nine add clear"                     "four five six multiply equals" "one two three divide equals" "zero zero decimal subtract equals";
+}
+
+#one {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  grid-area: one;
+}
+
+#two {
+  -ms-grid-row: 4;
+  -ms-grid-column: 2;
+  grid-area: two;
+}
+
+#three {
+  -ms-grid-row: 4;
+  -ms-grid-column: 3;
+  grid-area: three;
+}
+
+#four {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: four;
+}
+
+#five {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: five;
+}
+
+#six {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: six;
+}
+
+#seven {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: seven;
+}
+
+#eight {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: eight;
+}
+
+#nine {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: nine;
+}
+
+#add {
+  -ms-grid-row: 2;
+  -ms-grid-column: 4;
+  grid-area: add;
+}
+
+#zero {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: zero;
+}
+
+#equals {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 5;
+  grid-area: equals;
+}
+
+#multiply {
+  -ms-grid-row: 3;
+  -ms-grid-column: 4;
+  grid-area: multiply;
+}
+
+#divide {
+  -ms-grid-row: 4;
+  -ms-grid-column: 4;
+  grid-area: divide;
+}
+
+#display {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-area: display;
+}
+
+#decimal {
+  -ms-grid-row: 5;
+  -ms-grid-column: 3;
+  grid-area: decimal;
+}
+
+#subtract {
+  -ms-grid-row: 5;
+  -ms-grid-column: 4;
+  grid-area: subtract;
+}
+
+#clear {
+  -ms-grid-row: 2;
+  -ms-grid-column: 5;
+  grid-area: clear;
+}
+
+.key {
+  border: 1px solid green;
+  text-align: center;
+}
+
+.display {
+  text-align: right;
+  padding: 0.4em;
+}
+/*# sourceMappingURL=style.css.map */
