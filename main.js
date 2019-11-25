@@ -4,7 +4,7 @@ let displayStr = '0'
 
 
 const updateDisplay = (key, display) => {
-    let keyVal = key.innerText;
+    let keyVal = key.dataset.key;
     if(keyVal !== undefined) {
         if(keyVal === 'clear') {
             displayStr = '0';
@@ -12,7 +12,7 @@ const updateDisplay = (key, display) => {
         else if(['0', ERR_MSG].includes(displayStr) && !isNaN(keyVal)) {
             displayStr = keyVal;
         }
-        else if(keyVal === '=') {
+        else if(keyVal === 'Enter') {
             if( ! displayStr.match(/[^0-9*\/\-\+]/)) {
                 try {
                     displayStr = eval(displayStr) 
@@ -30,15 +30,15 @@ const updateDisplay = (key, display) => {
     }
 }
 
-const getKeyByInnerText = keyboardKey => {
-    document.querySelectorAll('.key').forEach(key => {
-        //console.log(`${key.innerText} ${keyboardKey}`)
-        if(key.innerText == keyboardKey) {
-            alert("x");
+const getKeyByDataAttr = keyboardKey => {
+    keys = document.querySelectorAll('.key');
+    for(key of keys) {
+        if(key.dataset.key == keyboardKey) {
             return key;
         }
-        return false;
-    });
+    }
+    return false;
+        
 }
 
 const main = () => {
@@ -53,7 +53,7 @@ const main = () => {
     document.addEventListener("keydown", function (event) {
         //event.preventDefault();
         
-        key = getKeyByInnerText(event.key);
+        key = getKeyByDataAttr(event.key);
         if(key) {
             key.click();
         }

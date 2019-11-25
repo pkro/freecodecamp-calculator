@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Nova+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
     <script src="main.js"></script>
     <title>Document</title>
 </head>
@@ -13,27 +15,25 @@
 <div class="container">
     <div class="display" id="display">0</div>
 
-    <button class="key numkey" id="one">1</button>
-    <button class="key numkey" id="two">2</button>
-    <button class="key numkey" id="three">3</button>
-    <button class="key numkey" id="four">4</button>
-    <button class="key numkey" id="five">5</button>
-    <button class="key numkey" id="six">6</button>
-    <button class="key numkey" id="seven">7</button>
-    <button class="key numkey" id="eight">8</button>
-    <button class="key numkey" id="nine">9</button>
-    <button class="key numkey" id="zero">0</button>
-    <button class="key numkey" id="decimal">.</button>
+    <button class="key" data-key="1" id="one">1</button>
+    <button class="key" data-key="2" id="two">2</button>
+    <button class="key" data-key="3" id="three">3</button>
+    <button class="key" data-key="4" id="four">4</button>
+    <button class="key" data-key="5" id="five">5</button>
+    <button class="key" data-key="6" id="six">6</button>
+    <button class="key" data-key="7" id="seven">7</button>
+    <button class="key" data-key="8" id="eight">8</button>
+    <button class="key" data-key="9" id="nine">9</button>
+    <button class="key" data-key="0" id="zero">0</button>
+    <button class="key" data-key="." id="decimal">.</button>
 
-    <button class="key opkey" id="add">+</button>
-    <button class="key opkey" id="subtract">-</button>
-    <button class="key opkey" id="multiply">*</button>
-    <button class="key opkey" id="divide">/</button>
+    <button class="key" data-key="+" id="add">+</button>
+    <button class="key" data-key="-" id="subtract">-</button>
+    <button class="key" data-key="*" id="multiply">*</button>
+    <button class="key" data-key="/" id="divide">/</button>
 
-    <button class="key" id="clear">clear</button>
-    
-
-    <button class="key equals" id="equals">=</button>
+    <button class="key" data-key="clear" id="clear">C</button>
+    <button class="key equals" data-key="Enter" id="equals">=</button>
 </div>
 </body>
 </html>
