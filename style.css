@@ -17,7 +17,7 @@ html {
   height: 300px;
   grid-gap: 10px;
   border: 1px solid black;
-  padding: 2%;
+  padding: 10px;
   background-color: gray;
   border-radius: 5%;
   -ms-grid-columns: (1fr)[5];
