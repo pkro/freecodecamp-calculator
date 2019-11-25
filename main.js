@@ -4,7 +4,8 @@ let displayStr = '0'
 let isResult = false;
 
 const updateDisplay = (key, display) => {
-    let keyVal = key.dataset.key;
+    //let keyVal = key.dataset.key;
+    let keyVal = key.getAttribute('data-key');
     
     if(keyVal !== undefined) {
         if(keyVal === 'clear') {
