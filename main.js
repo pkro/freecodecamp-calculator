@@ -1,26 +1,35 @@
 const ERR_MSG = 'Malformed expression';
 
 let displayStr = '0'
-
+let isResult = false;
 
 const updateDisplay = (key, display) => {
     let keyVal = key.dataset.key;
+    
     if(keyVal !== undefined) {
         if(keyVal === 'clear') {
             displayStr = '0';
         }
+        else if(isResult) {
+            displayStr = keyVal;
+            isResult = false;
+        }
         else if(['0', ERR_MSG].includes(displayStr) && !isNaN(keyVal)) {
             displayStr = keyVal;
         }
-        else if(keyVal === 'Enter') {
-            if( ! displayStr.match(/[^0-9*\/\-\+]/)) {
+        else if(keyVal === '.' && displayStr.endsWith('.')) {
+            // do nothing
+        }
+        else if(keyVal == 'Enter') {
+            if( ! displayStr.match(/[^0-9*\/\-\+\.]/)) {
                 try {
-                    displayStr = eval(displayStr) 
+                    displayStr = eval(displayStr);
                 } catch {
                     displayStr = ERR_MSG;
+                } finally {
+                    isResult = true;
                 }
             }
-            
         }
         else {
             displayStr = displayStr + keyVal;
