@@ -4,10 +4,9 @@ let displayStr = '0'
 let isResult = false;
 
 const isOperator = keyVal => keyVal.match(/[\+\-\*\/]/);
+const getCurrentNumber = displayStr => displayStr.match(/[\d\.]+?$/)[0];
 
 const updateDisplay = (key, display) => {
-    //let keyVal = key.dataset.key;
-    lastNumRegex = /[\d\.]+?$/
     let keyVal = key.getAttribute('data-key');
     
     if(keyVal !== undefined) {
@@ -26,7 +25,7 @@ const updateDisplay = (key, display) => {
         else if(['0', undefined, ERR_MSG].includes(displayStr) && !isNaN(keyVal)) {
             displayStr = keyVal;
         }
-        else if(keyVal === '.' && displayStr.match(/[\d\.]+?$/)[0].includes('.')) {
+        else if(keyVal === '.' && getCurrentNumber(displayStr).includes('.')) {
             // do nothing
         }
         else if(keyVal == 'Enter') {
