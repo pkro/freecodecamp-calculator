@@ -5,6 +5,7 @@ let isResult = false;
 
 const isOperator = keyVal => keyVal.match(/[\+\-\*\/]/);
 const getCurrentNumber = displayStr => displayStr.match(/[\d\.]+?$/)[0];
+const removeMultiOperators = displayStr => displayStr.replace(/[\+\/\*]+?[\+\/\*]/, '');
 
 const updateDisplay = (key, display) => {
     let keyVal = key.getAttribute('data-key');
@@ -12,6 +13,7 @@ const updateDisplay = (key, display) => {
     if(keyVal !== undefined) {
         if(keyVal === 'clear') {
             displayStr = '0';
+            isResult = false;
         }
         else if(isResult) {
             if(isOperator(keyVal)) {
@@ -29,6 +31,9 @@ const updateDisplay = (key, display) => {
             // do nothing
         }
         else if(keyVal == 'Enter') {
+            console.log(displayStr);
+            //displayStr = removeMultiOperators(displayStr);
+            console.log(displayStr);
             try {
                 displayStr = eval(displayStr);
             } catch {
@@ -37,7 +42,6 @@ const updateDisplay = (key, display) => {
                 isResult = true;
             }
         }
-
         else {
             displayStr = displayStr + keyVal;
         }
@@ -67,14 +71,11 @@ const main = () => {
     });
 
     document.addEventListener("keydown", function (event) {
-        //event.preventDefault();
-        
         key = getKeyByDataAttr(event.key);
         if(key) {
             key.click();
         }
     });
 }
-
 
 document.addEventListener('DOMContentLoaded', main)
