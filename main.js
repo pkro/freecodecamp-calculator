@@ -5,7 +5,13 @@ let isResult = false;
 
 const isOperator = keyVal => keyVal.match(/[\+\-\*\/]/);
 const getCurrentNumber = displayStr => displayStr.match(/[\d\.]+?$/)[0];
-const removeMultiOperators = displayStr => displayStr.replace(/[\+\/\*]+?[\+\/\*]/, '');
+const removeMultiOperators = displayStr => {
+    while(displayStr.match(/([\+\/\*\-])([\+\/\*])/)) {
+        displayStr = displayStr.replace(/([\+\/\*\-])([\+\/\*])/, '$2');
+    }
+    return displayStr;
+    
+}
 
 const updateDisplay = (key, display) => {
     let keyVal = key.getAttribute('data-key');
@@ -32,7 +38,7 @@ const updateDisplay = (key, display) => {
         }
         else if(keyVal == 'Enter') {
             console.log(displayStr);
-            //displayStr = removeMultiOperators(displayStr);
+            displayStr = removeMultiOperators(displayStr);
             console.log(displayStr);
             try {
                 displayStr = eval(displayStr);
